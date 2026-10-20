@@ -1,0 +1,67 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap");
+
+/* Тёмная тема (по умолчанию) */
+:root,
+html.dark {
+  --color-bg: 11 15 26;
+  --color-panel: 19 26 42;
+  --color-panel2: 26 35 56;
+  --color-accent: 180 255 57;
+  --color-violet: 139 123 255;
+  --color-muted: 136 146 166;
+  --color-text: 255 255 255;
+}
+
+/* Светлая тема */
+html.light {
+  --color-bg: 246 247 250;
+  --color-panel: 255 255 255;
+  --color-panel2: 240 242 247;
+  --color-accent: 100 180 20;
+  --color-violet: 105 90 230;
+  --color-muted: 100 110 130;
+  --color-text: 20 25 40;
+}
+
+*,
+*::after,
+*::before { box-sizing: border-box; }
+
+html, body, #app {
+  min-height: 100%;
+}
+
+body {
+  @apply bg-bg text-ink font-sans antialiased transition-colors duration-200;
+}
+
+@layer components {
+  .card {
+    @apply bg-panel rounded-2xl p-6 border border-ink/5 transition-colors duration-200;
+  }
+
+  .btn-primary {
+    @apply bg-accent text-black font-semibold px-6 py-3 rounded-xl
+           hover:brightness-110 active:scale-[0.98]
+           transition disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+
+  .btn-ghost {
+    @apply border border-ink/10 px-6 py-3 rounded-xl text-ink
+           hover:bg-ink/5 transition;
+  }
+
+  .input {
+    @apply w-full bg-panel border border-ink/10 rounded-xl px-4 py-3
+           text-ink placeholder-muted focus:outline-none
+           focus:border-accent transition;
+  }
+
+  .label {
+    @apply text-xs uppercase tracking-wider text-muted font-semibold;
+  }
+}
